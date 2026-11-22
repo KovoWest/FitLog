@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#FFFFFF"
+    android:elevation="2dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="3dp">
+    <TextView
+        style="@style/FitNextNav"
+        android:text="홈"
+        android:id="@+id/fitNavHome"/>
+    <TextView
+        style="@style/FitNextNav"
+        android:text="루틴"
+        android:id="@+id/fitNavRoutine"/>
+    <TextView
+        style="@style/FitNextNav"
+        android:text="운동 기록"
+        android:id="@+id/fitNavHistory"/>
+    <TextView
+        style="@style/FitNextNav"
+        android:text="운동 일정"
+        android:id="@+id/fitNavSchedule"/>
+</LinearLayout>
