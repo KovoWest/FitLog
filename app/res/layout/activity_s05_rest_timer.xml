@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- S05 타이머 콘텐츠 스크롤 영역 시작 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+    <!-- 상단 제목 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_media_previous"
+            android:contentDescription="뒤로가기"
+            android:tint="#222222"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="휴식 타이머"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- 운동 정보 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="25dp">
+
+        <TextView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:text="🏋"
+            android:textSize="30sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="벤치프레스"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#222222"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가슴  |  바벨 운동"
+                android:textSize="12sp"
+                android:textColor="#888888"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 원형 타이머 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="#F5FCF9">
+
+        <com.syw.figlogsample.CircularTimerView
+            android:id="@+id/circularTimer"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01:30"
+                android:textSize="29sp"
+                android:textStyle="bold"
+                android:textColor="#008F60"/>
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="남은 시간"
+                android:textSize="12sp"
+                android:textColor="#777777"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- 휴식시간 설정 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="휴식시간 설정"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#222222"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingHorizontal="12dp">
+
+        <Button
+            android:id="@+id/btn30"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="30초"
+            android:textSize="12sp"
+            android:backgroundTint="#F5F5F5"
+            android:textColor="#333333"/>
+
+        <Button
+            android:id="@+id/btn60"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="5dp"
+            android:text="60초"
+            android:textSize="12sp"
+            android:backgroundTint="#F5F5F5"
+            android:textColor="#333333"/>
+
+        <Button
+            android:id="@+id/btn90"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="5dp"
+            android:text="90초"
+            android:textSize="12sp"
+            android:backgroundTint="#008F60"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/btn120"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="120초"
+            android:textSize="12sp"
+            android:backgroundTint="#F5F5F5"
+            android:textColor="#333333"/>
+    </LinearLayout>
+
+    <!-- 타이머 제어 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:text="↻"
+                android:textSize="25sp"
+                android:backgroundTint="#F3F5F6"
+                android:textColor="#222222"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="초기화"
+                android:textSize="12sp"
+                android:textColor="#555555"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnPause"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:text="Ⅱ"
+                android:textSize="25sp"
+                android:backgroundTint="#008F60"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/tvPauseLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일시정지"
+                android:textSize="12sp"
+                android:textColor="#555555"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnStop"
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:text="■"
+                android:textSize="20sp"
+                android:backgroundTint="#F3F5F6"
+                android:textColor="#222222"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="종료"
+                android:textSize="12sp"
+                android:textColor="#555555"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 안내 문구 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginHorizontal="25dp"
+        android:gravity="center_vertical"
+        android:text="ⓘ  설정한 휴식시간이 끝나면 알림으로 알려드립니다.\n     운동 세트 사이에 휴식 타이머를 사용하면\n     효율적인 운동과 휴식시간 관리가 가능합니다."
+        android:textSize="10sp"
+        android:textColor="#888888"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- 하단 메뉴 -->
+
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <!-- 홈 -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="홈"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fitlog_home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="홈"
+                android:textColor="#888888"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+        <!-- 루틴 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="운동 루틴"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fitlog_routin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="루틴"
+                android:textColor="#888888"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+        <!-- 운동 기록 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="운동 기록"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fitlog_record" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="운동 기록"
+                android:textColor="#667085"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+
+        <!-- 운동 일정 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/fitlog_schedule"
+                android:textColor="#667085" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="일정"
+                android:textColor="#888888"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- ============================== -->
+    <!-- 상단 제목 -->
+    <!-- ============================== -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="42dp"
+            android:layout_height="50dp"
+            android:text="←"
+            android:textSize="32sp"
+            android:textColor="#111827"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="운동 기록"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#111827"
+            android:layout_marginStart="12dp"/>
+
+    </LinearLayout>
+
+
+    <!-- ============================== -->
+    <!-- 메인 스크롤 영역 -->
+    <!-- ============================== -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="24dp">
+
+
+            <!-- ============================== -->
+            <!-- 운동 정보 카드 -->
+            <!-- ============================== -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="104dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp">
+
+                    <!-- 운동 이미지 영역 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="82dp"
+                        android:layout_height="78dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#F5F5F5">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="🏋️"
+                            android:textSize="42sp"
+                            android:gravity="center"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <!-- 운동 이름 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:id="@+id/tvExerciseName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="벤치프레스"
+                            android:textSize="21sp"
+                            android:textStyle="bold"
+                            android:textColor="#111827"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="가슴 | 바벨 운동"
+                            android:textSize="14sp"
+                            android:textColor="#8993A3"
+                            android:layout_marginTop="6dp"/>
+
+                    </LinearLayout>
+
+
+                    <!-- 운동 변경 -->
+                    <Button
+                        android:id="@+id/btnChangeExercise"
+                        android:layout_width="88dp"
+                        android:layout_height="48dp"
+                        android:text="운동 변경"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#008F72"
+                        android:textAllCaps="false"
+                        android:backgroundTint="#E8F7F2"
+                        android:stateListAnimator="@null"
+                        android:padding="0dp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- ============================== -->
+            <!-- 이전 운동 기록 -->
+            <!-- ============================== -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#F0F8F5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+
+                    <!-- 이전 기록 제목 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="◴  이전 운동 기록"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#111827"/>
+
+                        <TextView
+                            android:id="@+id/tvPreviousDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2025.09.26 (토)"
+                            android:textSize="13sp"
+                            android:textColor="#8993A3"/>
+
+                    </LinearLayout>
+
+
+                    <!-- 이전 기록 테이블 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#FFFFFF">
+
+                        <LinearLayout
+                            android:id="@+id/layoutPreviousSets"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <!-- 이전 1세트 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="horizontal"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="1세트"
+                                    android:textSize="14sp"
+                                    android:textColor="#111827"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="60kg"
+                                    android:textSize="14sp"
+                                    android:textColor="#111827"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="10회"
+                                    android:textSize="14sp"
+                                    android:textColor="#111827"
+                                    android:gravity="center"/>
+
+                            </LinearLayout>
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#F0F1F3"/>
+
+
+                            <!-- 이전 2세트 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="horizontal"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="2세트"
+                                    android:textSize="14sp"
+                                    android:textColor="#111827"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="60kg"
+                                    android:textSize="14sp"
+                                    android:textColor="#111827"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="60kg"
+                                    android:textSize="14sp"
+                                    android:textColor="#111827"
+                                    android:gravity="center"
+                                    android:visibility="gone"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="10회"
+                                    android:textSize="14sp"
+                                    android:textColor="#111827"
+                                    android:gravity="center"/>
+
+                            </LinearLayout>
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#F0F1F3"/>
+
+
+                            <!-- 이전 3세트 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="horizontal"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="3세트"
+                                    android:textSize="14sp"
+                                    android:textColor="#111827"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="55kg"
+                                    android:textSize="14sp"
+                                    android:textColor="#111827"
+                                    android:gravity="center"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="8회"
+                                    android:textSize="14sp"
+                                    android:textColor="#111827"
+                                    android:gravity="center"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- ============================== -->
+            <!-- 이번 운동 기록 제목 -->
+            <!-- ============================== -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="이번 운동 기록 입력"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:textColor="#111827"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="12dp"/>
+
+
+            <!-- ============================== -->
+            <!-- 이번 운동 기록 카드 -->
+            <!-- ============================== -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <!-- 테이블 헤더 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="#E5F4EF">
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:text="세트"
+                            android:textSize="14sp"
+                            android:textColor="#111827"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="무게 (kg)"
+                            android:textSize="14sp"
+                            android:textColor="#111827"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="횟수 (회)"
+                            android:textSize="14sp"
+                            android:textColor="#111827"
+                            android:gravity="center"/>
+
+                        <Space
+                            android:layout_width="48dp"
+                            android:layout_height="1dp"/>
+
+                    </LinearLayout>
+
+
+                    <!-- ============================== -->
+                    <!-- 세트 입력 컨테이너 -->
+                    <!-- ============================== -->
+
+                    <LinearLayout
+                        android:id="@+id/layoutSetContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <!-- 1세트 -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="58dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:text="1세트"
+                                android:textSize="14sp"
+                                android:textColor="#111827"
+                                android:gravity="center"/>
+
+                            <EditText
+                                android:id="@+id/etWeight1"
+                                android:layout_width="0dp"
+                                android:layout_height="42dp"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="6dp"
+                                android:inputType="numberDecimal"
+                                android:text="60"
+                                android:textSize="14sp"
+                                android:textColor="#111827"
+                                android:gravity="center_vertical"
+                                android:paddingStart="12dp"
+                                android:singleLine="true"
+                                android:backgroundTint="#D9DEE7"/>
+
+                            <EditText
+                                android:id="@+id/etReps1"
+                                android:layout_width="0dp"
+                                android:layout_height="42dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="6dp"
+                                android:inputType="number"
+                                android:text="10"
+                                android:textSize="14sp"
+                                android:textColor="#111827"
+                                android:gravity="center_vertical"
+                                android:paddingStart="12dp"
+                                android:singleLine="true"
+                                android:backgroundTint="#D9DEE7"/>
+
+                            <ImageView
+                                android:id="@+id/btnDeleteSet1"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:padding="12dp"
+                                android:src="@drawable/s03_delete_icon"
+                                android:contentDescription="운동 세트 삭제"
+                                android:scaleType="fitCenter"
+                                android:clickable="true"
+                                android:focusable="true"/>
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#EDF0F2"/>
+
+
+                        <!-- 2세트 -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="58dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:text="2세트"
+                                android:textSize="14sp"
+                                android:textColor="#111827"
+                                android:gravity="center"/>
+
+                            <EditText
+                                android:id="@+id/etWeight2"
+                                android:layout_width="0dp"
+                                android:layout_height="42dp"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="6dp"
+                                android:inputType="numberDecimal"
+                                android:text="60"
+                                android:textSize="14sp"
+                                android:textColor="#111827"
+                                android:gravity="center_vertical"
+                                android:paddingStart="12dp"
+                                android:singleLine="true"
+                                android:backgroundTint="#D9DEE7"/>
+
+                            <EditText
+                                android:id="@+id/etReps2"
+                                android:layout_width="0dp"
+                                android:layout_height="42dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="6dp"
+                                android:inputType="number"
+                                android:text="8"
+                                android:textSize="14sp"
+                                android:textColor="#111827"
+                                android:gravity="center_vertical"
+                                android:paddingStart="12dp"
+                                android:singleLine="true"
+                                android:backgroundTint="#D9DEE7"/>
+
+                            <ImageView
+                                android:id="@+id/btnDeleteSet2"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:padding="12dp"
+                                android:src="@drawable/s03_delete_icon"
+                                android:contentDescription="운동 세트 삭제"
+                                android:scaleType="fitCenter"
+                                android:clickable="true"
+                                android:focusable="true"/>
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#EDF0F2"/>
+
+
+                        <!-- 3세트 -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="58dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:text="3세트"
+                                android:textSize="14sp"
+                                android:textColor="#111827"
+                                android:gravity="center"/>
+
+                            <EditText
+                                android:id="@+id/etWeight3"
+                                android:layout_width="0dp"
+                                android:layout_height="42dp"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="6dp"
+                                android:inputType="numberDecimal"
+                                android:text="55"
+                                android:textSize="14sp"
+                                android:textColor="#111827"
+                                android:gravity="center_vertical"
+                                android:paddingStart="12dp"
+                                android:singleLine="true"
+                                android:backgroundTint="#D9DEE7"/>
+
+                            <EditText
+                                android:id="@+id/etReps3"
+                                android:layout_width="0dp"
+                                android:layout_height="42dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="6dp"
+                                android:inputType="number"
+                                android:text="10"
+                                android:textSize="14sp"
+                                android:textColor="#111827"
+                                android:gravity="center_vertical"
+                                android:paddingStart="12dp"
+                                android:singleLine="true"
+                                android:backgroundTint="#D9DEE7"/>
+
+                            <ImageView
+                                android:id="@+id/btnDeleteSet3"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:padding="12dp"
+                                android:src="@drawable/s03_delete_icon"
+                                android:contentDescription="운동 세트 삭제"
+                                android:scaleType="fitCenter"
+                                android:clickable="true"
+                                android:focusable="true"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!-- ============================== -->
+                    <!-- 세트 추가 버튼 -->
+                    <!-- ============================== -->
+
+                    <Button
+                        android:id="@+id/btnAddSet"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:text="＋  세트 추가"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="#008F72"
+                        android:textAllCaps="false"
+                        android:backgroundTint="#E8F7F2"
+                        android:stateListAnimator="@null"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- ============================== -->
+            <!-- 메모 -->
+            <!-- ============================== -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="메모 (선택)"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#111827"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#F8F9FB">
+
+                <EditText
+                    android:id="@+id/etMemo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="오늘 운동 내용을 메모해보세요."
+                    android:textSize="14sp"
+                    android:textColor="#111827"
+                    android:textColorHint="#9AA3B2"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:gravity="center_vertical"
+                    android:inputType="textMultiLine"
+                    android:background="@android:color/transparent"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- ============================== -->
+            <!-- 취소 / 저장 버튼 -->
+            <!-- ============================== -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="18dp">
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="취소"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#111827"
+                    android:textAllCaps="false"
+                    android:backgroundTint="#F0F1F4"
+                    android:stateListAnimator="@null"/>
+
+                <Space
+                    android:layout_width="16dp"
+                    android:layout_height="match_parent"/>
+
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="저장 및 운동 시작"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:backgroundTint="#009B77"
+                    android:stateListAnimator="@null"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <!-- ============================== -->
+    <!-- 하단 네비게이션 구분선 -->
+    <!-- ============================== -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F1F3"/>
+
+
+    <!-- ============================== -->
+    <!-- 하단 네비게이션 -->
+    <!-- ============================== -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#FFFFFF">
+
+
+        <!-- 홈 -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/fitlog_home"
+                android:contentDescription="홈"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="홈"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                />
+
+        </LinearLayout>
+
+
+        <!-- 루틴 -->
+        <LinearLayout
+            android:id="@+id/navRoutine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/fitlog_routin"
+                android:contentDescription="운동 루틴"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="루틴"
+                android:textSize="12sp"
+                android:textColor="#888888"/>
+
+        </LinearLayout>
+
+
+        <!-- 운동 기록 -->
+        <LinearLayout
+            android:id="@+id/navRecord"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/fitlog_record"
+                android:contentDescription="운동 기록"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="운동 기록"
+                android:textSize="11sp"
+                android:textColor="#667085"/>
+
+        </LinearLayout>
+
+
+        <!-- 운동 일정 -->
+        <LinearLayout
+            android:id="@+id/navSchedule"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/fitlog_schedule"
+                android:textColor="#667085"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="일정"
+                android:textSize="12sp"
+                android:textColor="#888888"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

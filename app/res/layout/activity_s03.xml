@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true">
+
+    <!-- ============================= -->
+    <!-- 상단 헤더 -->
+    <!-- ============================= -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="←"
+            android:textSize="30sp"
+            android:textColor="#111827"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/tvScreenTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="운동 루틴 등록"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:textColor="#111827"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F1F2F4"/>
+
+    <!-- ============================= -->
+    <!-- 스크롤 가능한 메인 콘텐츠 -->
+    <!-- ============================= -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <!-- ============================= -->
+            <!-- 루틴 이름 -->
+            <!-- ============================= -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="루틴 이름 *"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#111827"/>
+
+            <EditText
+                android:id="@+id/etRoutineName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+
+                android:background="@drawable/bg_s03_input_rounded"
+
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+
+                android:text="가슴 운동 루틴"
+                android:textSize="15sp"
+                android:textColor="#374151"
+
+                android:singleLine="true"
+                android:inputType="textCapSentences"
+                android:hint="루틴 이름을 입력하세요"
+                android:textColorHint="#9CA3AF"/>
+
+            <!-- ============================= -->
+            <!-- 운동 종목 추가 -->
+            <!-- ============================= -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="운동 종목 추가"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:textColor="#111827"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- 운동 선택 영역 -->
+
+                <LinearLayout
+                    android:id="@+id/layoutExerciseSelector"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_s03_rounded"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="28dp"
+                        android:layout_height="wrap_content"
+                        android:text="⌕"
+                        android:textSize="29sp"
+                        android:textColor="#6B7280"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvSelectedExercise"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:text="운동 종목을 선택하세요"
+                        android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:textColor="#6B7280"/>
+
+                    <TextView
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:text="▾"
+                        android:textSize="22sp"
+                        android:gravity="center"
+                        android:textColor="#6B7280"/>
+
+                </LinearLayout>
+
+                <!-- 추가 버튼 -->
+
+                <TextView
+                    android:id="@+id/btnAddExercise"
+                    android:layout_width="82dp"
+                    android:layout_height="54dp"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center"
+                    android:text="추가"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="#087D57"
+                    android:background="@drawable/bg_s03_rounded"
+                    android:backgroundTint="#E8F5EF"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+            </LinearLayout>
+
+            <!-- ============================= -->
+            <!-- 선택된 운동 종목 제목 -->
+            <!-- ============================= -->
+
+            <TextView
+                android:id="@+id/tvExerciseCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="14dp"
+                android:text="선택된 운동 종목 (4개)"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#111827"/>
+
+            <!-- ============================= -->
+            <!-- 운동 목록 배경 -->
+            <!-- ============================= -->
+
+            <LinearLayout
+                android:id="@+id/layoutExerciseList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:background="#EEF7F3">
+
+                <!-- 운동 1 -->
+
+                <LinearLayout
+                    android:id="@+id/itemExercise1"
+                    android:layout_width="match_parent"
+                    android:layout_height="82dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="12dp"
+                    android:background="@drawable/bg_s03_rounded">
+
+                    <TextView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#087D57"
+                        android:backgroundTint="#E2F3EB"
+                        android:background="@drawable/bg_s03_rounded"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="벤치프레스"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="#111827"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="가슴"
+                            android:textSize="14sp"
+                            android:textColor="#8B93A1"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/dragExercise1"
+                        android:layout_width="35dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="⠿"
+                        android:textSize="27sp"
+                        android:textColor="#9CA3AF"/>
+
+                    <ImageView
+                        android:id="@+id/btnDeleteExercise1"
+                        android:layout_width="38dp"
+                        android:layout_height="48dp"
+                        android:padding="8dp"
+                        android:src="@drawable/s03_delete_icon"
+                        android:contentDescription="운동 종목 삭제"
+                        android:scaleType="fitCenter"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                </LinearLayout>
+
+                <!-- 운동 2 -->
+
+                <LinearLayout
+                    android:id="@+id/itemExercise2"
+                    android:layout_width="match_parent"
+                    android:layout_height="82dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="12dp"
+                    android:background="@drawable/bg_s03_rounded">
+
+                    <TextView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#087D57"
+                        android:background="@drawable/bg_s03_rounded"
+                        android:backgroundTint="#E2F3EB"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="인클라인 벤치프레스"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="#111827"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="가슴"
+                            android:textSize="14sp"
+                            android:textColor="#8B93A1"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/dragExercise2"
+                        android:layout_width="35dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="⠿"
+                        android:textSize="27sp"
+                        android:textColor="#9CA3AF"/>
+
+                    <ImageView
+                        android:id="@+id/btnDeleteExercise2"
+                        android:layout_width="38dp"
+                        android:layout_height="48dp"
+                        android:padding="8dp"
+                        android:src="@drawable/s03_delete_icon"
+                        android:contentDescription="운동 종목 삭제"
+                        android:scaleType="fitCenter"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                </LinearLayout>
+
+                <!-- 운동 3 -->
+
+                <LinearLayout
+                    android:id="@+id/itemExercise3"
+                    android:layout_width="match_parent"
+                    android:layout_height="82dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="12dp"
+                    android:background="@drawable/bg_s03_rounded">
+
+                    <TextView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#087D57"
+                        android:background="@drawable/bg_s03_rounded"
+                        android:backgroundTint="#E2F3EB"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="체스트 프레스"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="#111827"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="가슴"
+                            android:textSize="14sp"
+                            android:textColor="#8B93A1"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/dragExercise3"
+                        android:layout_width="35dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="⠿"
+                        android:textSize="27sp"
+                        android:textColor="#9CA3AF"/>
+
+                    <ImageView
+                        android:id="@+id/btnDeleteExercise3"
+                        android:layout_width="38dp"
+                        android:layout_height="48dp"
+                        android:padding="8dp"
+                        android:src="@drawable/s03_delete_icon"
+                        android:contentDescription="운동 종목 삭제"
+                        android:scaleType="fitCenter"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                </LinearLayout>
+
+                <!-- 운동 4 -->
+
+                <LinearLayout
+                    android:id="@+id/itemExercise4"
+                    android:layout_width="match_parent"
+                    android:layout_height="82dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="12dp"
+                    android:background="@drawable/bg_s03_rounded">
+
+                    <TextView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#087D57"
+                        android:background="@drawable/bg_s03_rounded"
+                        android:backgroundTint="#E2F3EB"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="딥스"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="#111827"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="가슴"
+                            android:textSize="14sp"
+                            android:textColor="#8B93A1"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/dragExercise4"
+                        android:layout_width="35dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="⠿"
+                        android:textSize="27sp"
+                        android:textColor="#9CA3AF"/>
+
+                    <TextView
+                        android:id="@+id/btnDeleteExercise4"
+                        android:layout_width="38dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="♜"
+                        android:textSize="24sp"
+                        android:textColor="#EF3028"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ============================= -->
+            <!-- 안내 메시지 -->
+            <!-- ============================= -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:background="#F3F4F6">
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="ⓘ"
+                    android:textSize="23sp"
+                    android:textColor="#64748B"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:text="운동 순서는 위에서부터 차례대로 진행됩니다.&#10;종목을 길게 눌러 순서를 변경할 수 있습니다."
+                    android:textSize="13sp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="#64748B"/>
+
+            </LinearLayout>
+
+            <!-- ============================= -->
+            <!-- 취소 / 저장 -->
+            <!-- ============================= -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="22dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="취소"
+                    android:textSize="18sp"
+                    android:textColor="#374151"
+                    android:background="@drawable/bg_s03_rounded"
+                    android:backgroundTint="#F1F2F4"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <Space
+                    android:layout_width="14dp"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/btnSaveRoutine"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="저장"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_s03_rounded"
+                    android:backgroundTint="#087F5B"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- ============================= -->
+    <!-- 하단 네비게이션 -->
+    <!-- ============================= -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F1F2F4"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#FFFFFF">
+
+        <!-- 홈 -->
+
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/fitlog_home"
+                android:contentDescription="홈"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="홈"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                />
+
+        </LinearLayout>
+
+        <!-- 루틴 -->
+
+        <LinearLayout
+            android:id="@+id/navRoutine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/fitlog_routin"
+                android:contentDescription="운동 루틴"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="루틴"
+                android:textSize="12sp"
+                android:textColor="#888888"/>
+
+        </LinearLayout>
+
+        <!-- 운동 기록 -->
+
+        <LinearLayout
+            android:id="@+id/navRecord"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/fitlog_record"
+                android:contentDescription="운동 기록"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="운동 기록"
+                android:textSize="11sp"
+                android:textColor="#667085"/>
+
+        </LinearLayout>
+
+        <!-- 운동 일정 -->
+
+        <LinearLayout
+            android:id="@+id/navSchedule"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/fitlog_schedule"
+                android:textColor="#667085"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="일정"
+                android:textSize="12sp"
+                android:textColor="#888888"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
